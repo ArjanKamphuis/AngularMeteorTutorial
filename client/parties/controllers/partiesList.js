@@ -1,7 +1,6 @@
 angular.module('socially').controller('PartiesListCtrl', function($scope, $meteor) {
-	$scope.parties = $meteor.collection(Parties);
-	$scope.add = function(owner) {
-		$scope.parties.owner = owner;
+	$scope.parties = $meteor.collection(Parties).subscribe('parties');
+	$scope.add = function() {
 		$scope.parties.save($scope.newParty);
 		$scope.newParty = '';
 	};
