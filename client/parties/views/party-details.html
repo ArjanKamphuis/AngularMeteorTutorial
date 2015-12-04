@@ -13,7 +13,7 @@ Here you will see and change the details of the party:
 
 <ul>
 	Users:
-	<li ng-repeat="user in users">
+	<li ng-repeat="user in users | uninvited:party">
 		<div>{{ user.emails[0].address }}</div>
 	</li>
 </ul>
