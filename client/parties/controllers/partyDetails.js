@@ -12,4 +12,14 @@ angular.module('socially').controller('PartyDetailsCtrl', function($scope, $stat
 	$scope.reset = function() {
 		$scope.party.reset();
 	};
+	
+	$scope.invite = function(user) {
+		$meteor.call('invite', $scope.party._id, user._id).then(
+			function(data) {
+				console.log('success inviting', data);
+			}, function(error) {
+				console.log('failed', error)
+			}
+		);
+	};
 });
