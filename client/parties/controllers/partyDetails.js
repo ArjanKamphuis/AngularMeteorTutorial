@@ -22,4 +22,11 @@ angular.module('socially').controller('PartyDetailsCtrl', function($scope, $stat
 			}
 		);
 	};
+	
+	$scope.canInvite = function() {
+		if (!$scope.party) {
+			return false;
+		}
+		return !$scope.party.public && $scope.party.owner === Meteor.userId();
+	};
 });
